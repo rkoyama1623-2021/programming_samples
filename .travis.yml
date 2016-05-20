@@ -13,3 +13,4 @@ install:
 
 before_script:
 script:
+  - ./test.sh
