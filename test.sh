@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 function usage (){
     echo "this is command for test"
 }
@@ -27,8 +29,10 @@ for test in ${testList[@]}; do
     execute ./$(basename ${test})
     if ! test ${?} -eq 0;then 
         echo "test fail.";
+        exit 1;
     else
-        echo "test pass!"
+        echo "test pass!";
+        exit 0;
     fi
     if [ -e build ];then execute rm -rf build; fi;
 done
