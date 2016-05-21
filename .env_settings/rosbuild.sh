@@ -6,4 +6,6 @@ cd ${HOME}/ros/indigo_parent/src
 wstool update
 cd ${HOME}/ros/indigo_parent
 catkin build -ci
+source $HOME/ros/indigo_parent/devel/setup.bash
+
 cd ${REPOSITORY_TOP}
