@@ -3,7 +3,7 @@ function usage (){
 }
 function execute (){
     echo "--->" $@
-    if ! ${ECHO}; then ${ECHO} $@; fi;
+    if ! ${ECHO}; then ${ECHO} $@; else ${@}; fi;
 }
 OPT=`getopt -o hipeynsr: -l help, -- $*`
 eval set -- $OPT
@@ -16,8 +16,11 @@ while [ -n "$1" ] ; do
     esac
 done
 
-testList=(cpp/basic/.template/build.sh cpp/basic/inheritance/build.sh)
+testList=(cpp/basic/.template/build.sh cpp/basic/inheritance/build.sh cpp/hrpsys/sequence_player/build.sh)
 topDir=$(pwd)
+
+echo "echo = $ECHO"
+
 for test in ${testList[@]}; do
     execute cd ${topDir}
     execute cd $(dirname ${test})
