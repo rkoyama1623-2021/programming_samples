@@ -29,12 +29,16 @@ for test in ${testList[@]}; do
     execute ./$(basename ${test})
     if ! test ${?} -eq 0;then 
         echo "test fail.";
-        exit 1;
+        export EXIT_STATUS=1;
     else
         echo "test pass!";
-        exit 0;
+        if EXIT_STATUS -eq 0;then
+            export EXIT_STATUS=0;
+        fi
     fi
     if [ -e build ];then execute rm -rf build; fi;
 done
 execute cd ${topDir}
+if test EXIT_STATUS -eq 0; then exit 0;else exit 1;fi
+
 
