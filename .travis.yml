@@ -6,11 +6,54 @@ language:
 cache:
   - apt
 
+# Configuration variables. All variables are global now, but this can be used to
+# trigger a build matrix for different ROS distributions if desired.
 env:
-
+  global:
+    - ROS_DISTRO=indigo
+    - ROS_CI_DESKTOP="`lsb_release -cs`"  # e.g. [precise|trusty|...]
+    - CI_SOURCE_PATH=$(pwd)
+    - ROSINSTALL_FILE=$CI_SOURCE_PATH/dependencies.rosinstall
+    - CATKIN_OPTIONS=$CI_SOURCE_PATH/catkin.options
+    - ROS_PARALLEL_JOBS='-j8 -l6'
+################################################################################
+# Install system dependencies, namely a very barebones ROS setup.
 before_install:
-install:
+  - export REPOSITORY_TOP=$(pwd)
+  - sudo sh -c "echo \"deb http://packages.ros.org/ros/ubuntu $ROS_CI_DESKTOP main\" > /etc/apt/sources.list.d/ros-latest.list"
+  - wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
+  - sudo apt-get update -qq
+  - SUDO=sudo;
+  - APT_GET_YES="-y -qq -o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confnew"
+  - DISTRIBUTION=${ROS_DISTRO}
+  - $COMMAND $SUDO apt-get $APT_GET_YES install ros-${DISTRIBUTION}-rosbash python-rosdep python-wstool python-catkin-tools ros-${ROS_DISTRO}-catkin
 
+  - source /opt/ros/${ROS_DISTRO}/setup.bash
+  # Prepare rosdep to install dependencies.
+  - sudo rosdep init
+  - rosdep update
+
+# Create a catkin workspace with the package under integration.
+install:
+  - mkdir -p ~/ros/indigo/src
+  - cd ~/ros/indigo
+  - catkin init
+  # Create the devel/setup.bash (run catkin_make with an empty workspace) and
+  # source it to set the path variables.
+  - catkin build
+  - source devel/setup.bash
+  # Add the package under integration to the workspace using a symlink.
+  - cd ~/ros/indigo/src
+  - ln -s $CI_SOURCE_PATH .
+
+# Install all dependencies, using wstool and rosdep.
+# wstool looks for a ROSINSTALL_FILE defined in the environment variables.
 before_script:
+  - wget -q -O /tmp/jsk.rosbuild https://raw.github.com/jsk-ros-pkg/jsk_common/master/jsk.rosbuild
+  - bash /tmp/jsk.rosbuild --rtm hydro
+
+################################################################################
+
 script:
+  - cd ${REPOSITORY_TOP}
   - ./test.sh
