@@ -49,9 +49,7 @@ install:
 # Install all dependencies, using wstool and rosdep.
 # wstool looks for a ROSINSTALL_FILE defined in the environment variables.
 before_script:
-  - wget -q -O /tmp/jsk.rosbuild https://raw.github.com/jsk-ros-pkg/jsk_common/master/jsk.rosbuild
-  - bash /tmp/jsk.rosbuild --rtm indigo -y
-
+  - ${REPOSITORY_TOP}/.env_settings/rosbuild.sh 
 ################################################################################
 
 script:
