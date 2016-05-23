@@ -16,7 +16,15 @@ while [ -n "$1" ] ; do
     esac
 done
 
-testList=(cpp/basic/.template/build.sh cpp/basic/inheritance/build.sh cpp/hrpsys/sequence_player/build.sh)
+testList=(
+    cmake/03_find_package/build.sh
+    cpp/basic/.template/build.sh
+    cpp/basic/inheritance/build.sh
+    cpp/basic/string/build.sh
+    cpp/openGL/2d/build.sh
+    cpp/openGL/showCube/build.sh
+    cpp/hrpsys/sequence_player/build.sh
+)
 topDir=$(pwd)
 
 export EXIT_STATUS=0;
@@ -33,4 +41,6 @@ for test in ${testList[@]}; do
     if [ -e build ];then execute rm -rf build; fi;
 done
 execute cd ${topDir}
+
+if $(exit ${EXIT_STATUS});then echo "test pass!!!";else echo "test fail...";fi
 exit ${EXIT_STATUS}
