@@ -8,8 +8,6 @@ cd ${HOME}/ros/indigo_parent/src
 wstool update
 cd ..
 rosdep install --from-paths src --ignore-src -r
-cd ${HOME}/ros/indigo_parent/src/openrtm_aist/build
-bash pkg_install_debianSarge.sh
 cd ${HOME}/ros/indigo_parent
 catkin build -ci
 source $HOME/ros/indigo_parent/devel/setup.bash
