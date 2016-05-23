@@ -21,6 +21,8 @@ testList=(
     cpp/basic/inheritance/build.sh
     cpp/basic/string/build.sh
     cmake/03_find_package/build.sh
+    cpp/openGL/2d/build.sh
+    cpp/openGL/showCube/build.sh
 )
 topDir=$(pwd)
 
