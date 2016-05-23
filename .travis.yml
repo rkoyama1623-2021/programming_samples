@@ -50,7 +50,7 @@ install:
 install:
   - bash .env
 before_script:
-  - source ${CI_SOURCE_PATH}/.env_settings/rosbuild.sh 
+  - source ${CI_SOURCE_PATH}/.env.d/rosbuild.sh 
 ################################################################################
 
 script:
