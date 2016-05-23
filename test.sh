@@ -19,6 +19,7 @@ done
 testList=(
     cpp/basic/.template/build.sh
     cpp/basic/inheritance/build.sh
+    cpp/basic/string/build.sh
     cmake/03_find_package/build.sh
 )
 topDir=$(pwd)
@@ -37,4 +38,5 @@ for test in ${testList[@]}; do
     if [ -e build ];then execute rm -rf build; fi;
 done
 execute cd ${topDir}
+if $(exit ${EXIT_STATUS});then echo "test pass!!!";else echo "test fail...";fi
 exit ${EXIT_STATUS}
