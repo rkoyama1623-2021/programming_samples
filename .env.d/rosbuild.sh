@@ -14,11 +14,6 @@ cd ${HOME}/ros/indigo_parent
 catkin build -ci
 source $HOME/ros/indigo_parent/devel/setup.bash
 
-cat "function catkin () {
-/usr/bin/catkin ${@};
-cp ${REPOSITORY_TOP}/.env.d/.catkin ${HOME}/ros/indigo_parent/devel/.catkin;
-}" >> ${HOME}/.bashrc
-source ${HOME}/.bashrc
 sudo updatedb
 cd ${CI_SOURCE_PATH}
 
