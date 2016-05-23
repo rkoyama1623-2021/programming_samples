@@ -3,7 +3,7 @@
 mkdir -p ${HOME}/ros/indigo_parent/src
 cd ${HOME}/ros/indigo_parent
 catkin init
-cp ${CI_SOURCE_PATH}/.env_settings/.rosinstall ${HOME}/ros/indigo_parent/src/
+cp ${CI_SOURCE_PATH}/.env.d/.rosinstall ${HOME}/ros/indigo_parent/src/
 cd ${HOME}/ros/indigo_parent/src
 wstool update
 cd ..
@@ -16,7 +16,7 @@ source $HOME/ros/indigo_parent/devel/setup.bash
 
 cat "function catkin () {
 /usr/bin/catkin ${@};
-cp ${REPOSITORY_TOP}/.env_settings/.catkin /home/koyama/ros/indigo_parent/devel/.catkin;
+cp ${REPOSITORY_TOP}/.env.d/.catkin ${HOME}/ros/indigo_parent/devel/.catkin;
 }" >> ${HOME}/.bashrc
 source ${HOME}/.bashrc
 sudo updatedb
