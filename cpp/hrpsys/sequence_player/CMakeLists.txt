@@ -41,4 +41,7 @@ include_directories(${HRPSYS_SEQ_DIR})
 add_executable(main main.cpp ${HRPSYS_SEQ_DIR}/interpolator.cpp)
 target_link_libraries(main ${libs})
 
+add_executable(main2 main2.cpp ${HRPSYS_SEQ_DIR}/interpolator.cpp)
+target_link_libraries(main2 ${libs})
+
 

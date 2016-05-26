@@ -15,5 +15,7 @@ if ! [ -e $? ];then export EXIT_STATUS=$?;fi
 cd ..
 
 ./build/main
+./build/main2
 if ! [ -e $? ];then export EXIT_STATUS=$?;fi
 gnuplot -p plot.plt
+gnuplot -p plot2.plt
