@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import argcomplete, argparse
+import argparse
 import sys
 
 parser = argparse.ArgumentParser(description='example:./parse_arg.py aaa -s fuga')
