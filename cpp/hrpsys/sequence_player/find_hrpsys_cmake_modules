@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-locate -r 'hrpsys/cmake_modules$'
