@@ -55,12 +55,9 @@ PROTO NewNodeName
   ]
   { DefinitionOfNode }
 ```
-example:
-```vrml
-Box {
-  field  SFVec3f  size 2 2 2
-}
-```
+Using PROTO sample is soccor_PROTO.wrl.
+
+
 ### type of field
 there are two type of fields:
 - Single-valued fields and events (SF**)
