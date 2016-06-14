@@ -16,6 +16,10 @@ cd ..
 
 ./build/main
 ./build/main2
+./build/tracking
+./build/tracking_without_interpolation
 if ! [ -e $? ];then export EXIT_STATUS=$?;fi
 gnuplot -p plot.plt
 gnuplot -p plot2.plt
+gnuplot -p tracking.plt
+gnuplot -p tracking_without_interpolation.plt

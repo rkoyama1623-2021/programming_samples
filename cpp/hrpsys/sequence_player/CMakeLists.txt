@@ -36,4 +36,8 @@ target_link_libraries(main ${libs})
 add_executable(main2 main2.cpp ${HRPSYS_SEQ_DIR}/interpolator.cpp)
 target_link_libraries(main2 ${libs})
 
+add_executable(tracking tracking.cpp ${HRPSYS_SEQ_DIR}/interpolator.cpp)
+target_link_libraries(tracking ${libs})
 
+add_executable(tracking_without_interpolation tracking_without_interpolation.cpp ${HRPSYS_SEQ_DIR}/interpolator.cpp)
+target_link_libraries(tracking_without_interpolation ${libs})
