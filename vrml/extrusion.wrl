@@ -1,0 +1,22 @@
+#VRML V2.0 utf8
+Shape {
+  geometry Extrusion {
+    crossSection [
+     0 1, 1 -1, -1 -1, 0 1  # 断面は３角形
+    ]
+    orientation [# list of axis & angle
+      0 1 0 0,               # 第１断面はそのまま
+      0 1 0 0,             # 第２断面は0.2よじる
+      0 0 1 0              # 第３断面は0.5傾ける
+    ]
+    scale [
+      1 1, 1.5 1.5, 1 1      # 第２断面だけ1.5倍
+    ]
+    spine [
+      0 0 0, 0 0 1, 0 0 2    # osidashi axis
+    ]
+  }
+  appearance Appearance {
+    material Material {}
+  }
+}
