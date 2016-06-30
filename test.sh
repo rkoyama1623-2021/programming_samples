@@ -20,10 +20,11 @@ testList=(
     cpp/basic/.template/build.sh
     cpp/basic/inheritance/build.sh
     cpp/basic/string/build.sh
-    cmake/03_find_package/build.sh
+    cpp/basic/bit/build.sh
     cpp/openGL/2d/build.sh
     cpp/openGL/showCube/build.sh
     python/03_convert_data_type/build.sh
+    cmake/03_find_package/build.sh
 )
 topDir=$(pwd)
 
