@@ -23,6 +23,7 @@ testList=(
     cmake/03_find_package/build.sh
     cpp/openGL/2d/build.sh
     cpp/openGL/showCube/build.sh
+    python/03_convert_data_type/build.sh
 )
 topDir=$(pwd)
 
