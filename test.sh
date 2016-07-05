@@ -1,3 +1,6 @@
+# ------------------
+# for display results
+# ------------------
 function usage (){
     echo "this is command for test"
 }
@@ -16,6 +19,21 @@ while [ -n "$1" ] ; do
     esac
 done
 
+
+# ------------------
+# install dependances
+# ------------------
+echo "install dependances ------------!"
+sudo apt-get update
+find . -name ".dependencies"| while read -r f; do
+    source ${f}
+done
+
+
+# ------------------
+# test each program
+# ------------------
+echo "test start ---------------------! "
 testList=(
     cpp/basic/.template/build.sh
     cpp/basic/inheritance/build.sh
