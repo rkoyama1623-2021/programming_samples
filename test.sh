@@ -42,6 +42,7 @@ testList=(
     cpp/basic/inheritance/build.sh
     cpp/basic/string/build.sh
     cpp/basic/bit/build.sh
+    cpp/boost/binding/build.sh
     cpp/openGL/2d/build.sh
     cpp/openGL/showCube/build.sh
     python/03_convert_data_type/build.sh
