@@ -1,2 +1,2 @@
-pip install argcomplete
-activate-global-python-argcomplete
+sudo -H pip install argcomplete
+sudo activate-global-python-argcomplete

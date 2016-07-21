@@ -25,7 +25,8 @@ done
 # ------------------
 echo "install dependances ------------!"
 sudo apt-get update
-find . -name ".dependencies"| while read -r f; do
+files=($(find . -name ".dependencies"))
+for f in ${files[@]};do
     source ${f}
 done
 
