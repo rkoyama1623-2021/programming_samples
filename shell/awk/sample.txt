@@ -1,0 +1,9 @@
+This is a sample text.
+AWK sample text.
+this is sample text for awk script.
+Line No. 1
+Line No. 2
+Line No. 3
+Line No. 4
+Line No. 5
+
