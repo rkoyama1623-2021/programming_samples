@@ -12,6 +12,6 @@ for j in range(2):
 fig.set_facecolor((1,1,1,1))
 
 fig.show()
-
+# plt.show() # keep window
 
 
