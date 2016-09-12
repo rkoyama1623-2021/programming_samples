@@ -6,6 +6,4 @@ cmake ..
 make; if ! $(exit $?);then EXIT_STATUS=1;fi
 cd ..
 
-./build/main; if ! $(exit $?);then EXIT_STATUS=1;fi
-
 exit $EXIT_STATUS

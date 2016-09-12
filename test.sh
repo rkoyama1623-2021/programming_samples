@@ -38,6 +38,8 @@ done
 # ------------------
 echo "test start ---------------------! "
 testList=(
+    c/ubuntu/terminal/build.sh
+    c/ubuntu/pty_sample/build.sh
     cpp/basic/.template/build.sh
     cpp/basic/inheritance/build.sh
     cpp/basic/string/build.sh
