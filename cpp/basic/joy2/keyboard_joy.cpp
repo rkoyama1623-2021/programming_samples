@@ -6,6 +6,10 @@
 #include <memory.h>
 #include <string>
 #include "getch.h"
+// for ros
+#include "ros/ros.h"
+#include "std_msgs/String.h"
+#include <sstream>
 
 namespace std {
   using namespace tr1; // std::tr1:: => std::
@@ -54,9 +58,35 @@ void keyboard_joy::read_sample() {
   // printf("UP:      %d/%d/%d (%d)\n", KEYCODE_U[0], KEYCODE_U[1], KEYCODE_U[2], (int) KEYCODE_U.size());
 };
 
+
 class ros_keyboard_joy : public keyboard_joy {
+private:
+  ros::NodeHandle nh;
+  ros::Publisher chatter_pub;
+  ros::Rate loop_rate;
 public:
+  ros_keyboard_joy(int tm_sec, int tm_usec);
   void read_sample();
+  void proc_one();
+  int loop;
+};
+ros_keyboard_joy::ros_keyboard_joy(int tm_sec=3, int tm_usec=0)
+  : keyboard_joy(tm_sec, tm_usec),
+    nh(),
+    chatter_pub(nh.advertise<std_msgs::String>("chatter", 1000)),
+    loop_rate(10),
+    loop(0)
+{};
+void ros_keyboard_joy::proc_one() {
+  std_msgs::String msg;
+  std::stringstream ss;
+  ss << "hello world " << loop;
+  msg.data = ss.str();
+  ROS_INFO("%s", msg.data.c_str());
+  chatter_pub.publish(msg);
+  ros::spinOnce();
+  loop_rate.sleep();
+  ++loop;
 };
 void ros_keyboard_joy::read_sample() {
   read(&key, 3);
@@ -77,8 +107,10 @@ void ros_keyboard_joy::read_sample() {
   printf("UP:      %d/%d/%d (%d)\n", KEYCODE_U[0], KEYCODE_U[1], KEYCODE_U[2], (int) KEYCODE_U.size());
 };
 
-int main(void)
+int main(int argc, char **argv)
 {
-  std::shared_ptr<keyboard_joy> kj(new ros_keyboard_joy());
+  ros::init(argc, argv, "keyboard_joy");
+  std::shared_ptr<ros_keyboard_joy> kj(new ros_keyboard_joy());
   kj -> read_sample();
+  kj -> proc_one();
 };
