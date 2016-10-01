@@ -1,5 +1,19 @@
 ## declare the executable version of cmake.
 cmake_minimum_required(VERSION 2.8)
+project(keyboard_joy)
+
+find_package(catkin REQUIRED COMPONENTS
+  roscpp
+  std_msgs
+  message_generation
+)
+catkin_package(
+#  INCLUDE_DIRS include
+#  LIBRARIES beginner_tutorials
+#  CATKIN_DEPENDS roscpp rospy std_msgs
+#  DEPENDS system_lib
+)
+
 find_package(Boost)
 include_directories(${Boost_INCLUDE_DIRS}/boost/tr1/tr1)
 link_directories(${PROJECT_SOURCE_DIR}/lib)
@@ -31,4 +45,4 @@ target_link_libraries(test getch)
 # set_target_properties(main PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 
 add_executable(keyboard_joy keyboard_joy.cpp)
-target_link_libraries(keyboard_joy getch)
+target_link_libraries(keyboard_joy getch ${catkin_LIBRARIES})
