@@ -13,7 +13,6 @@ namespace std {
 
 class keyboard_joy : GetCharacter {
 public:
-  keyboard_joy();
   keyboard_joy(int tm_sec, int tm_usec);
   ~keyboard_joy();
   void read();
@@ -24,10 +23,7 @@ private:
   const std::vector<char> KEYCODE_R;
   const std::vector<char> KEYCODE_L;
 };
-// keyboard_joy::keyboard_joy() : GetCharacter() {
-//   keyboard_joy(3,0);
-// };
-keyboard_joy::keyboard_joy(int tm_sec, int tm_usec)
+keyboard_joy::keyboard_joy(int tm_sec=3, int tm_usec=0)
   :GetCharacter(tm_sec, tm_usec),
    KEYCODE_U{0x1b, 0x5b, 0x41},
    KEYCODE_D{0x1b, 0x5b, 0x42},
@@ -53,13 +49,13 @@ void keyboard_joy::read() {
   } else {
     printf("key_vec: %d/%d/%d (%d)\n", key_vec[0], key_vec[1], key_vec[2], (int) key_vec.size());
   }
-  // printf("key_vec: %d/%d/%d (%d)\n", key_vec[0], key_vec[1], key_vec[2], key_vec.size());
+  // printf("key_vec: %d/%d/%d (%d)\n", key_vec[0], key_vec[1], key_vec[2], (int) key_vec.size());
   // printf("key:     %d/%d/%d\n", key[0], key[1], key[2]);
-  // printf("UP:      %d/%d/%d (%d)\n", KEYCODE_U[0], KEYCODE_U[1], KEYCODE_U[2], KEYCODE_U.size());
+  // printf("UP:      %d/%d/%d (%d)\n", KEYCODE_U[0], KEYCODE_U[1], KEYCODE_U[2], (int) KEYCODE_U.size());
 };
 
 int main(void)
 {
-  std::shared_ptr<keyboard_joy> kj(new keyboard_joy(3,0));
+  std::shared_ptr<keyboard_joy> kj(new keyboard_joy());
   kj -> read();
 };

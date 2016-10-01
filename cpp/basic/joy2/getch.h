@@ -13,6 +13,7 @@ private:
   int timeout_sec,timeout_usec;
   struct timeval timeout;
   void initTermios(int echo);
+  char key[8];
 public:
   GetCharacter ();
   GetCharacter (int tm_sec, int tm_usec);

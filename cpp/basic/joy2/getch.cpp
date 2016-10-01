@@ -32,15 +32,13 @@ void GetCharacter::resetTermios(void) {
 
 };
 void GetCharacter::read(char **c,int char_num=1) {
-  char key[3]={};
   FD_ZERO(&set); /* clear the set */
   FD_SET(stdin_fd, &set); /* add our file descriptor to the set */
   timeout.tv_sec = timeout_sec;
   timeout.tv_usec = timeout_usec;
   rv = select(stdin_fd + 1, &set, NULL, NULL, &timeout);
-  //printf("\nrv:%d", rv);
   if(rv == -1) {
-    /* an error accured */
+    /* an error occured */
     *c = key;
   }
   else if(rv == 0) {
