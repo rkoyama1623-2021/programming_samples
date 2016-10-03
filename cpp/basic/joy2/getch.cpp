@@ -31,24 +31,28 @@ void GetCharacter::resetTermios(void) {
   tcsetattr(0, TCSANOW, &old_setting);
 
 };
-bool GetCharacter::read(char **c, int char_num=1) {
+bool GetCharacter::read(bool *success, char **c, int char_num=1) {
   FD_ZERO(&set); /* clear the set */
   FD_SET(stdin_fd, &set); /* add our file descriptor to the set */
   timeout.tv_sec = timeout_sec;
   timeout.tv_usec = timeout_usec;
-  tcflush(stdin_fd, TCIFLUSH);
+  //tcflush(stdin_fd, TCIFLUSH);
   rv = select(stdin_fd + 1, &set, NULL, NULL, &timeout);
   if(rv == -1) {
     /* an error occured */
     *c = key;
+    *success = false;
     return false;
   } else if(rv == 0) {
     /* a timeout occured */
     *c = key;
+    *success = false;
     return false;
   } else {
     ::read(stdin_fd, &key, char_num);
+    tcflush(stdin_fd, TCIFLUSH);
     *c = key;
+    *success = true;
     return true;
   }
 };
