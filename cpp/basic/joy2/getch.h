@@ -19,5 +19,5 @@ public:
   GetCharacter (int tm_sec, int tm_usec);
   ~GetCharacter ();
   void resetTermios(void);
-  void read(char **c, int char_num);
+  bool read(char **c, int char_num);
 };
