@@ -45,6 +45,13 @@ testList=(
     cpp/boost/binding/build.sh
     cpp/openGL/2d/build.sh
     cpp/openGL/showCube/build.sh
+    cpp/openCV/reduction/build.sh
+    cpp/openCV/feature_1/build.sh
+    cpp/openCV/filter/build.sh
+    cpp/openCV/first_sample/build.sh
+    cpp/openCV/gray_scale/build.sh
+    cpp/openCV/CV_TEMPLATE/build.sh
+    cpp/openCV/feature_2/build.sh
     python/03_convert_data_type/build.sh
     cmake/03_find_package/build.sh
 )
