@@ -1,0 +1,9 @@
+# README
+
+this directory is for docs.
+
+## How to Generate Docs?
+```
+cd doxygen/php_sample/doc
+doxygen
+```
