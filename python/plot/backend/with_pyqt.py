@@ -53,7 +53,11 @@ class Window(QtGui.QDialog):
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
 
-    main = Window()
-    main.show()
+    main_widget = Window()
+    main_window = QtGui.QMainWindow()
+
+    # main.show()
+    main_window.setCentralWidget(main_widget)
+    main_window.show()
 
     sys.exit(app.exec_())
