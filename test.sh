@@ -48,6 +48,7 @@ testList=(
     cpp/openGL/2d/build.sh
     cpp/openGL/showCube/build.sh
     cpp/Qt/window/build.sh
+    cpp/OpenMP/build.sh
     python/03_convert_data_type/build.sh
     cmake/03_find_package/build.sh
 )
