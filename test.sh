@@ -45,6 +45,7 @@ testList=(
     cpp/basic/string/build.sh
     cpp/basic/bit/build.sh
     cpp/boost/binding/build.sh
+    cpp/boost/MultiIndex/build.sh
     cpp/openGL/2d/build.sh
     cpp/openGL/showCube/build.sh
     cpp/Qt/window/build.sh
