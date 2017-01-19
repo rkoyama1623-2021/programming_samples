@@ -1,0 +1,4 @@
+build
+*.csv
+*.dat
+*.png,*.svg,*.png

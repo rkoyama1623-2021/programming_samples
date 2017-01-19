@@ -47,6 +47,8 @@ testList=(
     cpp/boost/binding/build.sh
     cpp/boost/map/build.sh
     cpp/boost/MultiIndex/build.sh
+    cpp/boost/geometry/sample/build.sh
+    cpp/boost/timer/sample1/build.sh
     cpp/openGL/2d/build.sh
     cpp/openGL/showCube/build.sh
     cpp/Qt/window/build.sh
