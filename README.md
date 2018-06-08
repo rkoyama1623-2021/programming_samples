@@ -37,4 +37,6 @@ please follow `readme.md` in each directory.
 - test.sh
 test script executed when this repository is tested in TravisCI.
 
+## GitHub Pages:
+http://rkoyama1623.github.io/programming_samples/index.html
 
