@@ -20,8 +20,9 @@ w1 = view.addPlot(title = "my plot area")
 
 # plot data
 # mkPen(color,width,name)
-w1.plot([0,1,2,3,4],[3,6,5,8,7],pen=pyqtgraph.mkPen(1, width=1,name="hoge"))
-w1.plot([0,1,2,3,4],[5,7,6,2,9],pen=pyqtgraph.mkPen(2, width=1,name="fuga"))
+w1.addLegend(offset=(0, 0))
+w1.plot([0,1,2,3,4],[3,6,5,8,7],pen=pyqtgraph.mkPen(1, width=1),name="hoge")
+w1.plot([0,1,2,3,4],[5,7,6,2,9],pen=pyqtgraph.mkPen(2, width=1),name="fuga")
 
 status=app.exec_()# status get error messages
 

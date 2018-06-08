@@ -38,13 +38,23 @@ done
 # ------------------
 echo "test start ---------------------! "
 testList=(
+    c/ubuntu/terminal/build.sh
+    c/ubuntu/pty_sample/build.sh
     cpp/basic/.template/build.sh
     cpp/basic/inheritance/build.sh
     cpp/basic/string/build.sh
     cpp/basic/bit/build.sh
     cpp/boost/binding/build.sh
+    cpp/boost/map/build.sh
+    cpp/boost/MultiIndex/build.sh
+    cpp/boost/geometry/sample/build.sh
+    cpp/boost/timer/sample1/build.sh
     cpp/openGL/2d/build.sh
     cpp/openGL/showCube/build.sh
+    cpp/Qt/window/build.sh
+    cpp/OpenMP/build.sh
+    cpp/pybind11/python_sample/build.sh
+    cpp/pybind11/numpy_sample/build.sh
     python/03_convert_data_type/build.sh
     cmake/03_find_package/build.sh
 )
